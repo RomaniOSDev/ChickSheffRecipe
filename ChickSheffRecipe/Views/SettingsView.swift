@@ -74,7 +74,7 @@ struct SettingsView: View {
                 // Секция правовых документов
                 Section("Legal Information") {
                     Button(action: {
-                        if let url = URL(string: "https://Privacy") {
+                        if let url = URL(string: "https://www.termsfeed.com/live/c77c80e9-2c97-461b-b879-f078e6ff9cc4") {
                             UIApplication.shared.open(url)
                         }
                     }) {
@@ -101,7 +101,7 @@ struct SettingsView: View {
                     .buttonStyle(PlainButtonStyle())
                     
                     Button(action: {
-                        if let url = URL(string: "https://Terms") {
+                        if let url = URL(string: "https://www.termsfeed.com/live/32c13a21-e05d-4d72-b56e-77bb38f4a0da") {
                             UIApplication.shared.open(url)
                         }
                     }) {
