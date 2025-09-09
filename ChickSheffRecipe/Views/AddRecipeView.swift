@@ -75,7 +75,7 @@ struct AddRecipeView: View {
                             Image(systemName: "plus.circle")
                             Text("Add ingredient")
                         }
-                        .foregroundColor(Color("Orange"))
+                        .foregroundColor(Color("WarmRed"))
                     }
                 }
                 
@@ -85,7 +85,7 @@ struct AddRecipeView: View {
                             HStack {
                                 Text("Step \(index + 1)")
                                     .font(.headline)
-                                    .foregroundColor(Color("Orange"))
+                                    .foregroundColor(Color("WarmRed"))
                                 
                                 Spacer()
                                 
@@ -111,7 +111,7 @@ struct AddRecipeView: View {
                             Image(systemName: "plus.circle")
                             Text("Add step")
                         }
-                        .foregroundColor(Color("Orange"))
+                        .foregroundColor(Color("WarmRed"))
                     }
                 }
             }

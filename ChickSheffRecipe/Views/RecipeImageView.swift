@@ -110,31 +110,31 @@ struct RecipeImageView: View {
     private var backgroundColor: Color {
         switch imageName {
         case "chicken_oven":
-            return Color.orange
+            return Color("WarmRed")
         case "chicken_breast":
-            return Color.green
+            return Color("Yellow")
         case "chicken_soup":
-            return Color.blue
+            return Color("Red")
         case "caesar_salad":
-            return Color.purple
+            return Color("GoldenYellow")
         case "chicken_wings":
-            return Color.red
+            return Color("WarmRed")
         case "chicken_nuggets":
-            return Color.yellow
+            return Color("Yellow")
         case "chicken_pilaf":
-            return Color.brown
+            return Color("Red")
         case "chicken_curry":
-            return Color.pink
+            return Color("GoldenYellow")
         case "chicken_avocado_salad":
-            return Color.mint
+            return Color("Yellow")
         case "chicken_patties":
-            return Color.indigo
+            return Color("WarmRed")
         case "chicken_broth":
-            return Color.cyan
+            return Color("Red")
         case "chicken_cream_sauce":
-            return Color.teal
+            return Color("GoldenYellow")
         default:
-            return Color.gray
+            return Color("WarmRed")
         }
     }
     

@@ -147,7 +147,7 @@ struct SettingsView: View {
                         
                         Text("\(favoritesManager.favoriteRecipeIds.count)")
                             .font(.headline)
-                            .foregroundColor(Color("Orange"))
+                            .foregroundColor(Color("WarmRed"))
                     }
                     
                     HStack {
@@ -167,7 +167,7 @@ struct SettingsView: View {
                         
                         Text("\(userRecipeManager.userRecipes.count)")
                             .font(.headline)
-                            .foregroundColor(Color("Orange"))
+                            .foregroundColor(Color("WarmRed"))
                     }
                 }
             }
@@ -304,7 +304,7 @@ struct AboutView: View {
                         Circle()
                             .fill(
                                 LinearGradient(
-                                    gradient: Gradient(colors: [Color("Orange"), Color("Orange").opacity(0.7)]),
+                                    gradient: Gradient(colors: [Color("WarmRed"), Color("Red"), Color("Yellow")]),
                                     startPoint: .topLeading,
                                     endPoint: .bottomTrailing
                                 )
@@ -379,7 +379,7 @@ struct FeatureRow: View {
     var body: some View {
         HStack {
             Image(systemName: icon)
-                .foregroundColor(Color("Orange"))
+                .foregroundColor(Color("WarmRed"))
                 .frame(width: 20)
             
             Text(text)

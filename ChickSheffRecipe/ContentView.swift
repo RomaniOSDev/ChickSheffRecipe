@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @StateObject private var favoritesManager = FavoritesManager()
     @StateObject private var recipeListViewModel: RecipeListViewModel
+    @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding: Bool = false
     
     init() {
         let dataService = MockDataService()
@@ -19,32 +20,49 @@ struct ContentView: View {
     }
     
     var body: some View {
-        TabView {
-            NavigationView {
-                RecipeListView(viewModel: recipeListViewModel)
-            }
-            .tabItem {
-                Image(systemName: "book.fill")
-                Text("Recipes")
-            }
+        ZStack {
+            // Красивый градиентный фон
+            LinearGradient(
+                gradient: Gradient(colors: [
+                    Color("BackgroundGradient"),
+                    Color("Orange").opacity(0.3),
+                    Color("Yellow").opacity(0.2)
+                ]),
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+            .ignoresSafeArea()
             
-            NavigationView {
-                FavoritesView(favoritesManager: favoritesManager)
+            TabView {
+                NavigationView {
+                    RecipeListView(viewModel: recipeListViewModel)
+                }
+                .tabItem {
+                    Image(systemName: "book.fill")
+                    Text("Recipes")
+                }
+                
+                NavigationView {
+                    FavoritesView(favoritesManager: favoritesManager)
+                }
+                .tabItem {
+                    Image(systemName: "heart.fill")
+                    Text("Favorites")
+                }
+                
+                NavigationView {
+                    SettingsView()
+                }
+                .tabItem {
+                    Image(systemName: "gear")
+                    Text("Settings")
+                }
             }
-            .tabItem {
-                Image(systemName: "heart.fill")
-                Text("Favorites")
-            }
-            
-            NavigationView {
-                SettingsView()
-            }
-            .tabItem {
-                Image(systemName: "gear")
-                Text("Settings")
-            }
+            .accentColor(Color("WarmRed"))
         }
-        .accentColor(Color("Orange"))
+        .fullScreenCover(isPresented: .constant(!hasSeenOnboarding)) {
+            OnboardingView()
+        }
     }
 }
 

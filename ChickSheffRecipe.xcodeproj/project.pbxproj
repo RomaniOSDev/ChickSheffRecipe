@@ -29,6 +29,7 @@
 		74ADF7472E7023C3005EF65E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ADF7462E7023C3005EF65E /* ContentView.swift */; };
 		74ADF7492E702AE6005EF65E /* RecipeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ADF7482E702AE6005EF65E /* RecipeImageView.swift */; };
 		74ADF74B2E702D5E005EF65E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ADF74A2E702D5E005EF65E /* SettingsView.swift */; };
+		74ADF7502E7035DC005EF65E /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ADF74E2E7035DC005EF65E /* OnboardingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		74ADF7462E7023C3005EF65E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		74ADF7482E702AE6005EF65E /* RecipeImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeImageView.swift; sourceTree = "<group>"; };
 		74ADF74A2E702D5E005EF65E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		74ADF74E2E7035DC005EF65E /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		C5AAE39C6CEA6AC3D78892D6 /* Pods-ChickSheffRecipe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChickSheffRecipe.release.xcconfig"; path = "Target Support Files/Pods-ChickSheffRecipe/Pods-ChickSheffRecipe.release.xcconfig"; sourceTree = "<group>"; };
 		D2C3BEC1F71FE5F2D35F5812 /* Pods-ChickSheffRecipe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChickSheffRecipe.debug.xcconfig"; path = "Target Support Files/Pods-ChickSheffRecipe/Pods-ChickSheffRecipe.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,6 +137,7 @@
 				74ADF7442E70230C005EF65E /* AddRecipeView.swift */,
 				74ADF7482E702AE6005EF65E /* RecipeImageView.swift */,
 				74ADF74A2E702D5E005EF65E /* SettingsView.swift */,
+				74ADF74F2E7035DC005EF65E /* Onboarding */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -175,6 +178,14 @@
 				74ADF73B2E7022EC005EF65E /* UserRecipeManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		74ADF74F2E7035DC005EF65E /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				74ADF74E2E7035DC005EF65E /* OnboardingView.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,6 +298,7 @@
 				74ADF71D2E7017E2005EF65E /* SceneDelegate.swift in Sources */,
 				74ADF7352E701A9C005EF65E /* RecipeListViewModel.swift in Sources */,
 				74ADF7362E701A9C005EF65E /* RecipeDetailViewModel.swift in Sources */,
+				74ADF7502E7035DC005EF65E /* OnboardingView.swift in Sources */,
 				74ADF7452E70230C005EF65E /* AddRecipeView.swift in Sources */,
 				74ADF7492E702AE6005EF65E /* RecipeImageView.swift in Sources */,
 				74ADF7302E701A97005EF65E /* DataServiceProtocol.swift in Sources */,

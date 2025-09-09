@@ -26,7 +26,7 @@ struct RecipeCell: View {
                         Button(action: onFavoriteToggle) {
                             Image(systemName: isFavorite ? "heart.fill" : "heart")
                                 .font(.title2)
-                                .foregroundColor(isFavorite ? .red : .white)
+                                .foregroundColor(isFavorite ? Color("WarmRed") : .white)
                                 .padding(8)
                                 .background(
                                     Circle()
@@ -41,7 +41,14 @@ struct RecipeCell: View {
             }
             .overlay(
                 RoundedRectangle(cornerRadius: 12)
-                    .stroke(Color(.systemGray4), lineWidth: 1)
+                    .stroke(
+                        LinearGradient(
+                            gradient: Gradient(colors: [Color("WarmRed").opacity(0.3), Color("Yellow").opacity(0.3)]),
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        ),
+                        lineWidth: 2
+                    )
             )
             
             // Информация о рецепте
@@ -54,11 +61,11 @@ struct RecipeCell: View {
                 HStack {
                     Image(systemName: "clock")
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundColor(Color("WarmRed"))
                     
                     Text(getCookingTimeText())
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundColor(Color("WarmRed"))
                     
                     Spacer()
                     
@@ -76,38 +83,47 @@ struct RecipeCell: View {
                 
                 Text(recipe.category)
                     .font(.caption)
-                    .foregroundColor(Color("Orange"))
+                    .foregroundColor(Color("WarmRed"))
                     .fontWeight(.medium)
             }
             .padding(.horizontal, 4)
         }
-        .background(Color(.systemBackground))
+        .background(
+            LinearGradient(
+                gradient: Gradient(colors: [
+                    Color(.systemBackground),
+                    Color("Yellow").opacity(0.05)
+                ]),
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+        )
         .clipShape(RoundedRectangle(cornerRadius: 12))
-        .shadow(color: .black.opacity(0.1), radius: 4, x: 0, y: 2)
+        .shadow(color: Color("WarmRed").opacity(0.2), radius: 6, x: 0, y: 3)
     }
     
     private func getCookingTimeText() -> String {
         if recipe.cookingTime < 60 {
-            return "\(recipe.cookingTime) мин"
+            return "\(recipe.cookingTime) min"
         } else {
             let hours = recipe.cookingTime / 60
             let minutes = recipe.cookingTime % 60
             if minutes == 0 {
-                return "\(hours) ч"
+                return "\(hours) h"
             } else {
-                return "\(hours) ч \(minutes) мин"
+                return "\(hours) h \(minutes) min"
             }
         }
     }
     
     private func getDifficultyColor() -> Color {
         switch recipe.difficulty {
-        case "Легкая":
-            return .green
-        case "Средняя":
+        case "Easy":
+            return Color("Yellow")
+        case "Medium":
             return Color("Orange")
-        case "Сложная":
-            return .red
+        case "Hard":
+            return Color("WarmRed")
         default:
             return .gray
         }

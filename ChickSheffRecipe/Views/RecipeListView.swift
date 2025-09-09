@@ -21,7 +21,7 @@ struct RecipeListView: View {
             // Поиск
             HStack {
                 Image(systemName: "magnifyingglass")
-                    .foregroundColor(.secondary)
+                    .foregroundColor(Color("WarmRed"))
                 
                 TextField("Search recipes...", text: $viewModel.searchText)
                     .textFieldStyle(PlainTextFieldStyle())
@@ -31,12 +31,24 @@ struct RecipeListView: View {
                         viewModel.searchText = ""
                     }
                     .font(.caption)
-                    .foregroundColor(.orange)
+                    .foregroundColor(Color("WarmRed"))
                 }
             }
             .padding()
-            .background(Color(.systemGray6))
-            .cornerRadius(10)
+            .background(
+                RoundedRectangle(cornerRadius: 15)
+                    .fill(
+                        LinearGradient(
+                            gradient: Gradient(colors: [
+                                Color("Yellow").opacity(0.3),
+                                Color("Orange").opacity(0.2)
+                            ]),
+                            startPoint: .leading,
+                            endPoint: .trailing
+                        )
+                    )
+                    .shadow(color: Color("WarmRed").opacity(0.2), radius: 5, x: 0, y: 2)
+            )
             .padding(.horizontal)
             .padding(.top, 8)
             
@@ -46,7 +58,7 @@ struct RecipeListView: View {
                     ForEach(viewModel.categories, id: \.self) { category in
                         CategoryButton(
                             title: category,
-                            isSelected: viewModel.selectedCategory == category || (viewModel.selectedCategory == nil && category == "Все")
+                            isSelected: viewModel.selectedCategory == category || (viewModel.selectedCategory == nil && category == "All")
                         ) {
                             viewModel.filterRecipes(by: category)
                         }
@@ -55,7 +67,16 @@ struct RecipeListView: View {
                 .padding(.horizontal)
             }
             .padding(.vertical, 12)
-            .background(Color(.systemGray6))
+            .background(
+                LinearGradient(
+                    gradient: Gradient(colors: [
+                        Color("Red").opacity(0.1),
+                        Color("Yellow").opacity(0.1)
+                    ]),
+                    startPoint: .leading,
+                    endPoint: .trailing
+                )
+            )
             
             // Список рецептов
             if viewModel.isLoading {
@@ -117,12 +138,25 @@ struct CategoryButton: View {
             Text(title)
                 .font(.subheadline)
                 .fontWeight(.medium)
-                .foregroundColor(isSelected ? .white : .primary)
+                .foregroundColor(isSelected ? .white : Color("WarmRed"))
                 .padding(.horizontal, 16)
                 .padding(.vertical, 8)
                 .background(
                     RoundedRectangle(cornerRadius: 20)
-                        .fill(isSelected ? Color("Orange") : Color(.systemGray5))
+                        .fill(
+                            isSelected ? 
+                            LinearGradient(
+                                gradient: Gradient(colors: [Color("WarmRed"), Color("Red")]),
+                                startPoint: .leading,
+                                endPoint: .trailing
+                            ) :
+                            LinearGradient(
+                                gradient: Gradient(colors: [Color("Yellow").opacity(0.3), Color("Orange").opacity(0.2)]),
+                                startPoint: .leading,
+                                endPoint: .trailing
+                            )
+                        )
+                        .shadow(color: isSelected ? Color("WarmRed").opacity(0.3) : Color.clear, radius: 3, x: 0, y: 2)
                 )
         }
         .buttonStyle(PlainButtonStyle())

@@ -34,14 +34,14 @@ struct RecipeDetailView: View {
                         HStack(spacing: 16) {
                             HStack {
                                 Image(systemName: "clock")
-                                    .foregroundColor(Color("Orange"))
+                                    .foregroundColor(Color("WarmRed"))
                                 Text(viewModel.getCookingTimeText())
                                     .fontWeight(.medium)
                             }
                             
                             HStack {
                                 Image(systemName: "chart.bar.fill")
-                                    .foregroundColor(Color("Orange"))
+                                    .foregroundColor(Color("WarmRed"))
                                 Text(viewModel.recipe.difficulty)
                                     .fontWeight(.medium)
                             }
@@ -56,7 +56,13 @@ struct RecipeDetailView: View {
                                 .padding(.vertical, 4)
                                 .background(
                                     RoundedRectangle(cornerRadius: 12)
-                                        .fill(Color("Orange"))
+                                        .fill(
+                                            LinearGradient(
+                                                gradient: Gradient(colors: [Color("WarmRed"), Color("Red")]),
+                                                startPoint: .leading,
+                                                endPoint: .trailing
+                                            )
+                                        )
                                 )
                         }
                         .font(.subheadline)
@@ -106,7 +112,7 @@ struct RecipeDetailView: View {
                                 Text(timerManager.formattedTime)
                                     .font(.title)
                                     .fontWeight(.bold)
-                                    .foregroundColor(timerManager.isRunning ? Color("Orange") : .secondary)
+                                    .foregroundColor(timerManager.isRunning ? Color("WarmRed") : .secondary)
                             }
                             
                             ProgressView(value: timerManager.progress)
@@ -131,7 +137,13 @@ struct RecipeDetailView: View {
                                     .foregroundColor(.white)
                                     .frame(maxWidth: .infinity)
                                     .padding()
-                                    .background(Color("Orange"))
+                                    .background(
+                                        LinearGradient(
+                                            gradient: Gradient(colors: [Color("WarmRed"), Color("Red")]),
+                                            startPoint: .leading,
+                                            endPoint: .trailing
+                                        )
+                                    )
                                     .clipShape(RoundedRectangle(cornerRadius: 12))
                                 }
                             } else {
@@ -204,7 +216,7 @@ struct RecipeDetailView: View {
                                 Text("\(index + 1).")
                                     .font(.subheadline)
                                     .fontWeight(.semibold)
-                                    .foregroundColor(Color("Orange"))
+                                    .foregroundColor(Color("WarmRed"))
                                     .frame(width: 20, alignment: .leading)
                                 
                                 Text(ingredient)
@@ -240,7 +252,13 @@ struct RecipeDetailView: View {
                                     .frame(width: 28, height: 28)
                                     .background(
                                         Circle()
-                                            .fill(Color("Orange"))
+                                            .fill(
+                                                LinearGradient(
+                                                    gradient: Gradient(colors: [Color("WarmRed"), Color("Red")]),
+                                                    startPoint: .topLeading,
+                                                    endPoint: .bottomTrailing
+                                                )
+                                            )
                                     )
                                 
                                 Text(step)
@@ -274,7 +292,7 @@ struct RecipeDetailView: View {
                     .padding()
                     .background(
                         LinearGradient(
-                            gradient: Gradient(colors: [Color("Orange"), Color("Orange").opacity(0.8)]),
+                            gradient: Gradient(colors: [Color("WarmRed"), Color("Red"), Color("Yellow")]),
                             startPoint: .leading,
                             endPoint: .trailing
                         )
